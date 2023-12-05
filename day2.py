@@ -7,11 +7,11 @@ green  = 13
 blue = 14
 answer = 0
 
-maxRed = 0
-maxGreen = 0
-maxBlue = 0
+max_red = 0
+max_green = 0
+max_blue = 0
 multiplied = 0
-answerPart2 = 0
+answer_part_2 = 0
 
 file = open(r"day2_input.txt", "r")
 for line in file:
@@ -27,29 +27,29 @@ for line in file:
         for color in colors:
             number = "".join([num for num in color if num.isdigit()])
             if ("red" in color):
-                if (maxRed < int(number)):
-                    maxRed = int(number)
+                if (max_red < int(number)):
+                    max_red = int(number)
                 if (int(number) > 12):
                     error = True
             elif ("green" in color):
-                if (maxGreen < int(number)):
-                    maxGreen = int(number)
+                if (max_green < int(number)):
+                    max_green = int(number)
                 if (int(number) > 13):
                     error = True
             elif ("blue" in color):
-                if (maxBlue < int(number)):
-                    maxBlue = int(number)
+                if (max_blue < int(number)):
+                    max_blue = int(number)
                 if (int(number) > 14):
                     error = True
 
-    multiplied = maxRed * maxGreen * maxBlue
-    maxRed = 0
-    maxGreen = 0
-    maxBlue = 0
-    answerPart2 = answerPart2 + multiplied
+    multiplied = max_red * max_green * max_blue
+    max_red = 0
+    max_green = 0
+    max_blue = 0
+    answer_part_2 = answer_part_2 + multiplied
     if (not error):
         answer = answer + int(gameNumber)
 
 print(answer)
-print(answerPart2)
+print(answer_part_2)
 file.close()
